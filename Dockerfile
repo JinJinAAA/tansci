@@ -1,5 +1,5 @@
-# 使用 Maven 官方镜像作为构建阶段的基础镜像，标签选择更通用的 '3.9-openjdk-17'
-FROM maven:3.9-openjdk-17 AS build
+# 使用 Maven 官方镜像作为构建阶段的基础镜像，标签选择更通用的 '3.9-jdk-17' (注意：将 openjdk 改为 jdk)
+FROM maven:3.9-jdk-17 AS build
 
 # 设定工作目录
 WORKDIR /app
