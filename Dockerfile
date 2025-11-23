@@ -10,7 +10,8 @@ WORKDIR /app
 COPY pom.xml .
 
 # 复制 Maven Wrapper 文件（如果存在的话，如果不存在，这一步忽略）
-COPY .mvn .mvn
+# 注释掉此行：因为仓库中似乎没有 .mvn 目录，COPY 命令会失败
+# COPY .mvn .mvn
 
 # 下载项目依赖，以确保后续的代码修改不会重复下载依赖
 RUN mvn dependency:go-offline -B
