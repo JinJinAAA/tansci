@@ -1,17 +1,15 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import router from './router'; // Assuming you have a router file
-import store from './store';   // Assuming you have a store file
+import router from './router'; 
+import store from './store';   
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 
 // ------------------------------------------------------------------
 // 核心修复区域：Element Plus 语言包导入路径修正
-// 旧的路径 (e.g., 'element-plus/lib/locale/lang/zh-cn') 导致构建失败
-// 新版本应使用 'element-plus/dist/locale/zh-cn.mjs' 或 'element-plus/es/locale/lang/zh-cn'
+// 切换到 ES 模块路径 'element-plus/es/locale/lang/zh-cn' 
 // ------------------------------------------------------------------
-// import zhCn from 'element-plus/es/locale/lang/zh-cn'; // ES Module 路径 (可能导致某些环境失败)
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'; // 另一种稳定路径 (更适合生产构建)
+import zhCn from 'element-plus/es/locale/lang/zh-cn';
 
 const app = createApp(App);
 
@@ -21,7 +19,7 @@ app.use(store);
 
 // 挂载 Element Plus 并设置中文语言包
 app.use(ElementPlus, {
-  locale: zhCn, // 使用修正后的中文语言包
+  locale: zhCn, 
 });
 
 app.mount('#app');
