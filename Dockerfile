@@ -1,5 +1,6 @@
-# 使用 Maven 官方镜像作为构建阶段的基础镜像，使用精确标签 '3.9.6-jdk-17' 以确保 Docker Hub 能够找到它。
-FROM maven:3.9.6-jdk-17 AS build
+# 使用 Maven 官方镜像作为构建阶段的基础镜像。
+# 使用通用且稳定的标签 '3-jdk-17'，确保 Docker Hub 能够找到它，避免精确标签失效的问题。
+FROM maven:3-jdk-17 AS build
 
 # 设定工作目录
 WORKDIR /app
