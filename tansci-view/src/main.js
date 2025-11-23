@@ -10,8 +10,8 @@ import 'element-plus/dist/index.css';
 // 旧的路径 (e.g., 'element-plus/lib/locale/lang/zh-cn') 导致构建失败
 // 新版本应使用 'element-plus/dist/locale/zh-cn.mjs' 或 'element-plus/es/locale/lang/zh-cn'
 // ------------------------------------------------------------------
-import zhCn from 'element-plus/es/locale/lang/zh-cn'; // 推荐使用 ES Module 路径
-// import zhCn from 'element-plus/dist/locale/zh-cn.mjs'; // 另一种稳定路径
+// import zhCn from 'element-plus/es/locale/lang/zh-cn'; // ES Module 路径 (可能导致某些环境失败)
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'; // 另一种稳定路径 (更适合生产构建)
 
 const app = createApp(App);
 
