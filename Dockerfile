@@ -1,5 +1,5 @@
-# 使用 OpenJDK 17 作为基础镜像，这是 Spring Boot 推荐的 LTS 版本
-FROM maven:3.9.5-openjdk-17 AS build
+# 使用 Maven 官方镜像作为构建阶段的基础镜像，标签选择更通用的 '3.9-openjdk-17'
+FROM maven:3.9-openjdk-17 AS build
 
 # 设定工作目录
 WORKDIR /app
@@ -25,8 +25,8 @@ RUN mvn clean install -DskipTests
 # 第二阶段：运行阶段 (更小的运行环境)
 # --------------------------------------------------------------------------------
 
-# 使用轻量级的 Java 17 运行时环境作为运行时的基础镜像
-FROM openjdk:17-jdk-slim
+# 使用 Eclipse Temurin JRE 镜像作为运行时的基础镜像，这是一个轻量级且常用的 JDK/JRE 提供商
+FROM eclipse-temurin:17-jre-alpine
 
 # 设定工作目录
 WORKDIR /app
